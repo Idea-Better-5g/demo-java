@@ -72,7 +72,7 @@
     </nav>
     <div class="container">
         <h2>About Our Website</h2>
-        <p>This is a vibrant and colorful homepage layout with a modern touch.</p>
+        <p>Tts my world my Choice i can ruled </p>
     </div>
     <footer>
         <p>&copy; 2025 My Colorful Website. All rights reserved.</p>
