@@ -30,7 +30,7 @@ sh "scp -o SritHostKeyChecking=o taeget/demo.war ec2-user@13.201.4.156/opt/apach
 	}
 }
 }//try
-catch(e)
+catch(e) {
         currentBuild.result="FAILED"
         throw e
     }//catch close
