@@ -6,6 +6,7 @@ echo "node name is  :${env.NODE_NAME}"
         try{
         stage('git-checkot')
         {
+	notifyBuild('STARTED')	
         git branch: 'feature-1', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', 
         url: 'https://github.com/Idea-Better-5g/demo-java.git'    
         }
