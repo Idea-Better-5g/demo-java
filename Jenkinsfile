@@ -26,7 +26,7 @@ sh "${mavenHome}/bin/mvn clean deploy"
 stage('deploy into tomcat'){
 sshagent(['247df6d4-99a1-46ce-9a95-47649bb3f49a']) {
 
-sh "scp -o SritHostKeyChecking=o target/demo.war ec2-user@13.201.4.156/opt/apache-tomcat-9.0.102/webapps/"
+sh "scp -o SritHostKeyChecking=o target/demo.war ec2-user@13.201.4.156:/opt/apache-tomcat-9.0.102/webapps/"
 	}
 }
 }//try
