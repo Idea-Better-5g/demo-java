@@ -32,7 +32,7 @@
 		<spring.version>5.3.34</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://13.126.213.162:9000/</sonar.host.url>
+		<sonar.host.url>http://15.206.159.69:9000/</sonar.host.url>
 		<sonar.login>admin</sonar.login>
 		<sonar.password>12345</sonar.password> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,13 +45,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Releases Nexus Repository</name>
-	      <url>http://52.66.85.154:8081/repository/MRF-Release/</url>
+	      <url>http://3.111.245.71:8081/repository/MRF-Release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://52.66.85.154:8081/repository/MRF-snapshot/</url>
+	      <url>http://3.111.245.71:8081/repository/MRF-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
