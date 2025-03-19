@@ -1,44 +1,43 @@
 node{
-echo "Jenkins job name is  : ${env.JOB_NAME}"
-echo "build number is  : ${env.BUILD_NUMBER}"
-echo "node name is  :${env.NODE_NAME}"
-    def mavenHome = tool name : "maven-3.9.9"
+	echo "Jenkins job name is  : ${env.JOB_NAME}"
+	echo "build number is  : ${env.BUILD_NUMBER}"
+	echo "node name is  :${env.NODE_NAME}"
+    	def mavenHome = tool name : "maven-3.9.9"
         try{
-        stage('git-checkot')
-        {
-	notifyBuild('STARTED')	
-        git branch: 'feature-1', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', 
-        url: 'https://github.com/Idea-Better-5g/demo-java.git'    
-        }
-        stage('complie'){
-            sh "${mavenHome}/bin/mvn compile"
-        }
-        stage('build'){
-            sh "${mavenHome}/bin/mvn clean package"
-        }
-	   stage('SQ Report')
-	{
-    sh  "${mavenHome}/bin/mvn sonar:sonar"
-	}
-	stage('Deploy into Nexus')
-	{
-    sh  "${mavenHome}/bin/mvn clean deploy"
-	}
+		stage('git-checkot')
+        	{
+			notifyBuild('STARTED')	
+        		git branch: 'feature-1', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', 
+        		url: 'https://github.com/Idea-Better-5g/demo-java.git'    
+        	}
+        	stage('complie'){
+            		sh "${mavenHome}/bin/mvn compile"
+        	}
+        	stage('build'){
+           		sh "${mavenHome}/bin/mvn clean package"
+        	}
+	   	stage('SQ Report')
+		{
+    			sh  "${mavenHome}/bin/mvn sonar:sonar"
+		}
+		stage('Deploy into Nexus')
+		{
+    			sh  "${mavenHome}/bin/mvn clean deploy"
+		}
+		stage('deploy into tomcat'){
+			sshagent(['247df6d4-99a1-46ce-9a95-47649bb3f49a']) {
 
-stage('deploy into tomcat'){
-sshagent(['247df6d4-99a1-46ce-9a95-47649bb3f49a']) {
-
-sh "scp -o StrictHostKeyChecking=no target/demo.war ec2-user@13.201.4.156:/opt/apache-tomcat-9.0.102/webapps/"
-	}
-}
+			sh "scp -o StrictHostKeyChecking=no target/demo.war ec2-user@13.201.4.156:/opt/apache-					tomcat-9.0.102/webapps/"
+			}
+		}
 	}//try close
-	    catch(e)
-    {
-        currentBuild.result="FAILED"
-        throw e
-    }//catch close
-    finally{
-        notifyBuild(currentBuild.result)
+
+	catch(e)   {
+        	currentBuild.result="FAILED"
+        	throw e
+ 	   }//catch close
+    	finally{
+        	notifyBuild(currentBuild.result)
     }//finally close
 }//node close
 def notifyBuild(String buildStatus = 'STARTED') {
