@@ -31,7 +31,6 @@ node{
 			}
 		}
 	}//try close
-
 	catch(e)   {
         	currentBuild.result="FAILED"
         	throw e
