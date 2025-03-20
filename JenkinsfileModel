@@ -1,0 +1,53 @@
+pipeline{
+  agent any
+  tools {
+    maven 'maven-3.9.9'
+  }
+  triggers {
+    pollSCM '*/5 * * * *'
+  }
+
+stages{
+  stage('get-checkout'){
+    step{
+      git branch: '/feature-1', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', url: 'https://github.com/Idea-Better-5g/demo-java.git'
+    }
+  }
+stage('compile'){
+  step{
+  sh 'mvn compile'
+    }
+  }
+stage('build'){
+  step{
+  sh 'mvn clean package'
+    }
+  }
+stage('Sonar Report'){
+  step{
+  sh 'mvn clean sonar:sonar'
+    }
+  }
+stage('deploy artifact'){
+  step{
+    sh 'mvn clean deploy' 
+  }
+}
+
+stage('deploy into tomcat'){
+  step{
+    sshagent(['247df6d4-99a1-46ce-9a95-47649bb3f49a']) {
+      	sh "scp -o StrictHostKeyChecking=no target/demo.war ec2-user@http://3.108.64.244:9095:/opt/apache-tomcat-9.0.102/webapps/"
+          }
+    }
+  }
+}//stages close
+post {
+  success {
+    // One or more steps need to be included within each condition's block.
+  }
+  failure {
+    // One or more steps need to be included within each condition's block.
+  }
+}
+}//pipeline close
