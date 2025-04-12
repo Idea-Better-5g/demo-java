@@ -44,20 +44,15 @@
 	
 	    <repository>
 	      <id>nexus</id>
-	      <name>KK FUNDA Releases Nexus Repository</name>
-	      <url>http://13.233.254.6:8081/repository/MRF-Release/</url>
+	      <name>vaman-krishna</name>
+	      <url>http://13.233.90.48:8081/repository/scree-relase/</url>
 	    </repository>
-	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>KK FUNDA Snapshot Nexus Repository </name>
-	      <url>http://13.233.254.6:8081/repository/MRF-snapshot/</url>
+	      <name>vaman-krishna</name>
+	      <url>http://13.233.90.48:8081/repository/screen-Snapshot/</url>
 	    </snapshotRepository>
-	    
-	</distributionManagement>
-
-  
-  
+</distributionManagement>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
