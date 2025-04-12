@@ -308,7 +308,7 @@
                 <div class="feature-icon">
                     <i class="fas fa-palette"></i>
                 </div>
-                <h3 class="feature-title">Customizable Dashboards</h3>
+                <h3 class="feature-title">FaceBook Dashboards</h3>
                 <p class="feature-desc">
                     Personalize your dashboard with drag-and-drop widgets and color schemes.
                 </p>
