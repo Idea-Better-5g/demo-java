@@ -248,7 +248,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">ColorDash</div>
+            <div class="logo">FaceBook</div>
             <div class="auth-buttons">
                 <button class="btn btn-login">Login</button>
                 <button class="btn btn-signup">Sign Up</button>
