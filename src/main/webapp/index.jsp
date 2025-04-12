@@ -277,7 +277,7 @@
                         </div>
                         <div class="metric-card">
                             <span class="metric-label">Users</span>
-                            <span class="metric-value">1.2K</span>
+                            <span class="metric-value">20.2K</span>
                         </div>
                     </div>
                     <div class="card-row">
