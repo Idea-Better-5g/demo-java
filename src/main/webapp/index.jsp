@@ -257,7 +257,7 @@
         
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">Beautiful Analytics Dashboard</h1>
+                <h1 class="hero-title"> FaceBook Analytics Dashboard</h1>
                 <p class="hero-subtitle">
                     Get powerful insights with our colorful, intuitive dashboard. 
                     Monitor your data in real-time with stunning visuals.
