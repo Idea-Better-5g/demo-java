@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to ColorDash</title>
+    <title>Welcome to FaceBook status</title>
     <style>
         :root {
             --primary: #6c5ce7;
@@ -273,7 +273,7 @@
                     <div class="card-row">
                         <div class="metric-card">
                             <span class="metric-label">Revenue</span>
-                            <span class="metric-value">$24K</span>
+                            <span class="metric-value">$204K</span>
                         </div>
                         <div class="metric-card">
                             <span class="metric-label">Users</span>
