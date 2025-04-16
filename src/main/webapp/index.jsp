@@ -318,7 +318,7 @@
                 <div class="feature-icon">
                     <i class="fas fa-bell"></i>
                 </div>
-                <h3 class="feature-title">Smart Alerts</h3>
+                <h3 class="feature-title">Smart Alerts on FaceBook</h3>
                 <p class="feature-desc">
                     Receive notifications when important metrics change or reach thresholds.
                 </p>
