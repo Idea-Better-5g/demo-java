@@ -264,7 +264,7 @@
                 </p>
                 <div style="display: flex; gap: 1rem; margin-top: 2rem;">
                     <button class="btn btn-signup" style="padding: 1rem 2rem;">Get Started</button>
-                    <button class="btn btn-login" style="padding: 1rem 2rem;">Demo</button>
+                    <button class="btn btn-login" style="padding: 1rem 2rem;"> Demo </button>
                 </div>
             </div>
             
