@@ -1,8 +1,10 @@
 properties([
     pipelineTriggers([
-        pollSCM('* * * * *')
+        cron('* * * * *')  // Runs at 2 AM daily
     ])
 ])
+
+
 node {
 	def mavenHome= tool name: 'maven-3.9.9'	
 	stage('git check-out'){
