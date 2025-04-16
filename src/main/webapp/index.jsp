@@ -283,7 +283,7 @@
                     <div class="card-row">
                         <div class="metric-card">
                             <span class="metric-label">Conversion</span>
-                            <span class="metric-value">3.6%</span>
+                            <span class="metric-value">10.6%</span>
                         </div>
                     </div>
                     <div class="chart-placeholder">
