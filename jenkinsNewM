@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-      git branch: 'qa', credentialsId: 'db882271-4e7f-4b68-ae8f-db45f8e9cf66', url: 'https://github.com/Idea-Better-5g/demo-java.git'
+     // git branch: 'qa', credentialsId: 'db882271-4e7f-4b68-ae8f-db45f8e9cf66', url: 'https://github.com/Idea-Better-5g/demo-java.git'
+       git branch: 'qa', credentialsId:'db882271-4e7f-4b68-ae8f-db45f8e9cf66', url:'https://github.com/Idea-Better-5g/demo-java.git'
         }
       }
     
