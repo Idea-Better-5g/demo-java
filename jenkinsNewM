@@ -1,0 +1,58 @@
+pipeline {
+  agent any
+
+  tools {
+    maven 'maven-3.9.9'
+  }
+
+  triggers {
+    pollSCM('* * * *') // Syntax is fine
+  }
+
+  stages {
+    stage('Checkout Code') {
+      steps {
+        script {
+          def branch_Name = env.BRANCH_NAME
+
+          echo "Current Branch: ${branch_Name}"
+
+          if (branch_Name == 'develop') {
+            echo 'Deploying to DEV environment...'
+          } else if (branch_Name == 'UAT') {
+            echo 'Deploying to UAT environment...'
+          } else if (branch_Name == 'main') {
+            echo 'Deploying to PRODUCTION environment...'
+          } else {
+            echo 'No specific deployment for this branch.'
+          }
+
+          // Checkout step - usually not required in multibranch pipelines,
+          // but it's fine to include explicitly
+          checkout scm
+        }
+      }
+    }
+
+    stage('Compile') {
+      steps {
+        sh 'mvn compile'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+  }
+
+  post {
+    success {
+      echo "Pipeline executed successfully for branch: ${env.BRANCH_NAME}"
+    }
+    failure {
+      echo "Pipeline failed for branch: ${env.BRANCH_NAME}"
+    }
+  }
+}
