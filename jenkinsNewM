@@ -17,7 +17,7 @@ pipeline {
             echo 'Deploying to DEV environment...'
           } else if (branch_Name == 'UAT') {
             echo 'Deploying to UAT environment...'
-          } else if (branch_Name == 'main') {
+          } else if (branch_Name == 'qa') {
             echo 'Deploying to PRODUCTION environment...'
           } else {
             echo 'No specific deployment for this branch.'
