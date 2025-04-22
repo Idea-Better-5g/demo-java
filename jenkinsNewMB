@@ -10,6 +10,7 @@ pipeline {
       steps {
         script {
           def branch_Name = env.BRANCH_NAME
+          echo "branch name is :" ${branch_Name}
 
           if (branch_Name == 'develop') {
             echo 'Deploying to DEV environment...'
