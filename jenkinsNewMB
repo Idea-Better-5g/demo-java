@@ -1,0 +1,46 @@
+pipeline {
+  agent any
+  tools {
+    maven 'maven-3.9.9'
+  }
+    stages {
+    stage('Checkout Code') {
+      steps {
+	branch_Name = ${env.BRANCH_NAME}
+	 script {
+                    if (branch_Name == 'develop') {
+                        echo 'Deploying to DEV environment...'
+        		git branch: '${branch_Name}', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', url: 								'https://github.com/Idea-Better-5g/demo-java.git'
+	            } else if (branch_Name == 'UAT') {
+                        echo 'Deploying to UAT environment...'
+			git branch: '${branch_Name}', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', url: 								'https://github.com/Idea-Better-5g/demo-java.git'
+                    } else if (branch_Name == 'main') {
+                        echo 'Deploying to PRODUCTION environment...'
+			git branch: '${branch_Name}', credentialsId: '6e1718d8-aa75-4745-b8cd-afa034bab3d1', url: 								'https://github.com/Idea-Better-5g/demo-java.git'
+                    } else {
+                        echo 'No deployment needed for this branch.'
+                    }
+                }
+  	  }
+    }
+    stage('Compile') {
+      steps {
+        sh 'mvn compile'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'mvn clean package'
+      }
+    }
+ post {
+    success {
+      echo 'Pipeline executed successfully!'
+    }
+    failure {
+      echo 'Pipeline failed!'
+    }
+  }
+}
+
